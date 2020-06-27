@@ -39,7 +39,7 @@ angular.module('myApp.home', ['ngRoute'])
         {
             // the !query check is for next/previous buttons where next and previous queries are taken from api response
             if(!query)
-                $http.get('https://swapi.dev/api/planets?page=1&search=' + $scope.searchParam).then(successCallback, errorCallback);
+                $http.get('//swapi.dev/api/planets?page=1&search=' + $scope.searchParam).then(successCallback, errorCallback);
             else
                 $http.get(query).then(successCallback, errorCallback);
         }
