@@ -1,0 +1,98 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+ /* border-bottom: 0.1em solid black; */
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+
+/* app styles */
+
+body, html{
+  height: 100%;
+  width: 100%;
+}
+
+label{
+  margin-bottom: 0;
+}
+
+.viewContainer{
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.bannerContainer{
+  height: 200px;
+  background-image: url('images/swLogo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.mainContainer{
+  height: 100%;
+  width: 100%;
+}
+
+.loginMain{
+  display: table-cell;
+  width: 800px;
+  vertical-align: middle;
+}
+
+.searchContainer{
+  padding: 40px;
+}
+
+.greeting{
+  font-size: 24px;
+}
+.resultsDiv{
+  /*margin: 5px;*/
+}
+
+.searchTextBox{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.searchTextBox input{
+  width: 95%;
+}
+
+.searchTextBox img{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.planetData{
+width: 200px;
+}
+
+.resultDiv{
+  /*border: 1px solid red;
+   min-width: 10px;*/
+  height: 20px;
+  background-color: #f4b342;
+}

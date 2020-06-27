@@ -1,0 +1,31 @@
+<ul class="menu pull-right">
+  <li><a href="#!/login">Logout</a></li>
+</ul>
+
+<div class="clearfix searchContainer">
+<div class="row searchMain" ng-controller="HomeCtrl">
+  <div class="greeting">{{greeting}}</div>
+  <label class="small">Here you can search for planets</label>
+  <div class="clearfix searchTextBox">
+    <input type="text" ng-change="callSearch(null)" ng-model="searchParam" class="form-control pull-left" />
+    <img class="pull-left" ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 resultsDiv clearfix" ng-repeat="planet in planets">
+    <div class="pull-left planetData">
+      <label class="planetName">{{ planet.name}} </label><br/>
+      <small>Population:  {{ planet.population }}</small>
+    </div>
+    <div ng-style="{ 'width' : (planet.populationActual/maxPopulation * 80) >=1 ? (planet.populationActual/maxPopulation * 80) + '%' : '10px' }" class="clearfix pull-left resultDiv">
+
+    </div>
+  </div>
+
+  <div class="btn-group pager">
+    <button type="button" class="btn btn-primary" ng-disabled="!prevQuery" ng-click="callSearch(prevQuery)">Prev Page</button>
+    <button type="button" class="btn btn-primary" ng-disabled="!nxtQuery" ng-click="callSearch(nxtQuery)">Next Page</button>
+  </div>
+  <div ng-show="error" class="alert alert-danger">{{error}}</div>
+</div>
+
+</div>
