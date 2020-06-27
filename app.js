@@ -8,6 +8,14 @@ app.use(express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname));
 
+/* At the top, with other redirect methods before other routes */
+app.get('*',function(req,res,next){
+    if(req.headers['x-forwarded-proto']!='https')
+      res.redirect('https://' +req.url)
+    else
+      next() /* Continue to other routes if we're not redirecting */
+  })
+
 app.get('/', function(req, res) {
     res.sendfile('./app/index.html', {root: __dirname })
 });
