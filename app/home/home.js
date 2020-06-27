@@ -59,8 +59,8 @@ angular.module('myApp.home', ['ngRoute'])
         if(response.data.count > 0) {
             $scope.error = "";
             $scope.planets = response.data.results;
-            $scope.nxtQuery = response.data.next;
-            $scope.prevQuery = response.data.previous;
+            $scope.nxtQuery = response.data.next.replace('http','https');
+            $scope.prevQuery = response.data.previous ? response.data.previous.replace('http','https') : response.data.previous;
 
             angular.forEach($scope.planets, function (value, key) {
                 if (value.population === "unknown")
